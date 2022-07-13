@@ -97,7 +97,9 @@ sleep 2
 
 # Check cargo verison
 source "$HOME/.cargo/env" && \
-echo -e "\n$(cargo --version).\n" && sleep 1
+echo -e "\n$(cargo --version).\n"
+
+sleep 2
 
 # Install nodeJs and npm
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && \
