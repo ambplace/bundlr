@@ -36,6 +36,8 @@ sudo apt-get install curl wget jq libpq-dev libssl-dev \
 build-essential pkg-config openssl ocl-icd-opencl-dev \
 libopencl-clang-dev libgomp1 -y
 
+apt install docker-compose
+
 install() {
 	cd
 	if ! docker --version; then
