@@ -151,7 +151,7 @@ break
 cd $HOME/bundlr/validator-rust && \
 testnet-cli balance ${BUNDLR_ADDRESS}
 
-"5. Run validator")
+5. Run validator')
 cd $HOME/bundlr/validator-rust && \
 testnet-cli join RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA \
 -w ./wallet.json \
