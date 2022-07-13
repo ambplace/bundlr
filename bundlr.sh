@@ -1,3 +1,7 @@
+#!/bin/bash
+
+while true
+do
 
 # Logo
 #!/bin/bash
@@ -14,9 +18,6 @@ echo "=================================================="
 echo -e "https://amb.place"
 echo -e "https://bundlr.network"
 echo "=================================================="
-
-echo -e ""
-
 echo -e "\033[0m"
 
 # Menu
