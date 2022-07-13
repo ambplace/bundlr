@@ -1,7 +1,3 @@
-#!/bin/bash
-
-while true
-do
 
 # Logo
 #!/bin/bash
