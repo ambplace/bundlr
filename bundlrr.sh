@@ -24,7 +24,7 @@ select opt in "${options[@]}"
 do
 case $opt in
 
-"Install Node")
+"1. Install Node")
 echo "============================================================"
 echo "Install start"
 echo "============================================================"
@@ -120,7 +120,7 @@ cargo run --bin wallet-tool create > wallet.json
 break
 ;;
 
-"Request tokens on website")
+"2. Request tokens on website")
 cd $HOME/bundlr/validator-rust && \
 cargo run --bin wallet-tool show-address \
 --wallet wallet.json | jq ".address" | tr -d '"'
@@ -133,7 +133,7 @@ echo "==========================================================================
 break
 ;;
 
-"Run docker")
+"3. Run docker")
 cd $HOME/bundlr/validator-rust && \
 docker-compose up -d
 
@@ -147,11 +147,11 @@ echo -e 'Close logs Control+C and continiue install'
 break
 ;;
 
-"Check balance")
+"4. Check balance")
 cd $HOME/bundlr/validator-rust && \
 testnet-cli balance ${BUNDLR_ADDRESS}
 
-"Run validator")
+"5. Run validator")
 cd $HOME/bundlr/validator-rust && \
 testnet-cli join RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA \
 -w ./wallet.json \
@@ -161,7 +161,7 @@ testnet-cli join RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA \
 break
 ;;
 
-"Helpful commands"
+"Helpful commands")
 echo -e 'To restart docker: \e[1m\e[32mcd $HOME/bundlr/validator-rust && \docker-compose restart'
 echo -e 'To stop docker: \e[1m\e[32mcd $HOME/bundlr/validator-rust && \ docker-compose down -v'
 echo -e 'To start docker: \e[1m\e[32mcd $HOME/bundlr/validator-rust && \ docker-compose up -d'
