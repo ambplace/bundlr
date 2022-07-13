@@ -13,18 +13,18 @@ sleep 2
 
 PS3='Select an action: '
 options=(
-"1. Install Node"
-"2. Request tokens on website"
-"3. Run docker"
-"4. Check balance"
-"5. Run validator"
+"Install Node"
+"Request tokens on website"
+"Run docker"
+"Check balance"
+"Run validator"
 "Helpful commands"
 "Exit")
 select opt in "${options[@]}"
 do
 case $opt in
 
-"1. Install Node")
+"Install Node")
 echo "============================================================"
 echo "Install start"
 echo "============================================================"
@@ -124,7 +124,7 @@ cargo run --bin wallet-tool create > wallet.json
 break
 ;;
 
-"2. Request tokens on website")
+"Request tokens on website")
 cd $HOME/bundlr/validator-rust && \
 cargo run --bin wallet-tool show-address \
 --wallet wallet.json | jq ".address" | tr -d '"'
@@ -137,7 +137,7 @@ echo "==========================================================================
 break
 ;;
 
-"3. Run docker")
+"Run docker")
 cd $HOME/bundlr/validator-rust && \
 docker-compose up -d
 
@@ -151,11 +151,11 @@ echo -e 'Close logs Control+C and continiue install'
 break
 ;;
 
-"4. Check balance")
+"Check balance")
 cd $HOME/bundlr/validator-rust && \
 testnet-cli balance ${BUNDLR_ADDRESS}
 
-5. Run validator')
+Run validator')
 cd $HOME/bundlr/validator-rust && \
 testnet-cli join RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA \
 -w ./wallet.json \
@@ -182,5 +182,5 @@ exit
 ;;
 *) echo "invalid option $REPLY";;
 esac
-done
-done'
+done')
+done')
