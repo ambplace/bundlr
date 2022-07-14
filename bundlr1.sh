@@ -131,9 +131,12 @@ break
 ;;
 
 "Request tokens on website")
+
 cd $HOME/bundlr/validator-rust && \
 cargo run --bin wallet-tool show-address \
 --wallet wallet.json | jq ".address" | tr -d '"'
+
+sleep 3
 
 echo "========================================================================================================================"
 echo "In order to receive tokens, you need copy the last adress above, go to Bundlr faucet website
@@ -144,6 +147,7 @@ break
 ;;
 
 "Run docker")
+
 cd $HOME/bundlr/validator-rust && \
 docker-compose up -d
 
@@ -166,12 +170,18 @@ break
 cd $HOME/bundlr/validator-rust && \
 testnet-cli balance ${BUNDLR_ADDRESS}
 
+sleep 2
+break
+;;
+
 Run validator")
 cd $HOME/bundlr/validator-rust && \
 testnet-cli join RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA \
 -w ./wallet.json \
 -u "http://$(wget -qO- eth0.me):${BUNDLR_PORT}" \
 -s 25000000000000
+
+sleep 2
 
 break
 ;;
