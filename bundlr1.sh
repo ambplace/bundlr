@@ -12,17 +12,10 @@ sleep 2
 # Menu
 
 PS3='Select an action: '
-options=(
-"Install Node"
-"Request tokens on website"
-"Run docker"
-"Check balance"
-"Run validator"
-"Helpful commands"
-"Exit")
+options=("Install Node" "Request tokens on website" "Run docker" "Check balance" "Run validator" "Helpful commands" "Exit")
 select opt in "${options[@]}"
-do
-case $opt in
+               do
+                   case $opt in
 
 "Install Node")
 echo "============================================================"
@@ -35,11 +28,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install curl wget jq libpq-dev libssl-dev \
 build-essential pkg-config openssl ocl-icd-opencl-dev \
 libopencl-clang-dev libgomp1 -y
-
 apt install docker-compose
-
-sleep 2
-
 install() {
 	cd
 	if ! docker --version; then
@@ -86,42 +75,28 @@ uninstall() {
 	sudo rm -rf /etc/docker /usr/bin/docker /usr/libexec/docker /usr/libexec/docker/cli-plugins/docker-buildx /usr/libexec/docker/cli-plugins/docker-scan /usr/libexec/docker/cli-plugins/docker-app /usr/share/keyrings/docker-archive-keyring.gpg
 }
 
-sleep 2
-
 # Actions
 $function
 echo -e "${C_LGn}Done!${RES}"
 
-sleep 2
-
 # Install rust
 curl https://sh.rustup.rs -sSf | sh -s -- -y
-
-sleep 2
 
 # Check cargo verison
 source "$HOME/.cargo/env" && \
 echo -e "\n$(cargo --version).\n"
-
-sleep 2
 
 # Install nodeJs and npm
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && \
 sudo apt-get install nodejs -y && \
 echo -e "\nnodejs > $(node --version).\nnpm  >>> v$(npm --version).\n"
 
-sleep 2
-
 # Create Bundlr catalog
 mkdir $HOME/bundlr; cd $HOME/bundlr
-
-sleep 2
 
 # Clone repository
 git clone \
 --recurse-submodules https://github.com/Bundlr-Network/validator-rust.git
-
-sleep 2
 
 # Generate "wallet.json"
 cd $HOME/bundlr/validator-rust && \
@@ -136,7 +111,7 @@ cd $HOME/bundlr/validator-rust && \
 cargo run --bin wallet-tool show-address \
 --wallet wallet.json | jq ".address" | tr -d '"'
 
-sleep 3
+sleep 2
 
 echo "========================================================================================================================"
 echo "In order to receive tokens, you need copy the last adress above, go to Bundlr faucet website
@@ -170,7 +145,6 @@ break
 cd $HOME/bundlr/validator-rust && \
 testnet-cli balance ${BUNDLR_ADDRESS}
 
-sleep 2
 break
 ;;
 
