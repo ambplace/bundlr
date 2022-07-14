@@ -38,6 +38,8 @@ libopencl-clang-dev libgomp1 -y
 
 apt install docker-compose
 
+sleep 2
+
 install() {
 	cd
 	if ! docker --version; then
@@ -84,6 +86,8 @@ uninstall() {
 	sudo rm -rf /etc/docker /usr/bin/docker /usr/libexec/docker /usr/libexec/docker/cli-plugins/docker-buildx /usr/libexec/docker/cli-plugins/docker-scan /usr/libexec/docker/cli-plugins/docker-app /usr/share/keyrings/docker-archive-keyring.gpg
 }
 
+sleep 2
+
 # Actions
 $function
 echo -e "${C_LGn}Done!${RES}"
@@ -109,7 +113,9 @@ echo -e "\nnodejs > $(node --version).\nnpm  >>> v$(npm --version).\n"
 sleep 2
 
 # Create Bundlr catalog
-mkdir $HOME/bundlr; cd $HOME/bundlr && sleep 1
+mkdir $HOME/bundlr; cd $HOME/bundlr
+
+sleep 2
 
 # Clone repository
 git clone \
@@ -141,8 +147,12 @@ break
 cd $HOME/bundlr/validator-rust && \
 docker-compose up -d
 
+sleep 2
+
 cd $HOME/bundlr/validator-rust && \
 npm i -g @bundlr-network/testnet-cli
+
+sleep 2
 
 echo -e 'To check logs: \e[1m\e[32mcd $HOME/bundlr/validator-rust && \
 docker-compose logs -f --tail 10'
