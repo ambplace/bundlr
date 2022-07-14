@@ -174,7 +174,8 @@ sleep 2
 break
 ;;
 
-Run validator")
+"Run validator")
+
 cd $HOME/bundlr/validator-rust && \
 testnet-cli join RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA \
 -w ./wallet.json \
@@ -187,6 +188,7 @@ break
 ;;
 
 "Helpful commands")
+
 echo -e 'To restart docker: \e[1m\e[32mcd $HOME/bundlr/validator-rust && \docker-compose restart'
 echo -e 'To stop docker: \e[1m\e[32mcd $HOME/bundlr/validator-rust && \ docker-compose down -v'
 echo -e 'To start docker: \e[1m\e[32mcd $HOME/bundlr/validator-rust && \ docker-compose up -d'
