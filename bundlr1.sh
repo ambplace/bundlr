@@ -182,8 +182,6 @@ testnet-cli join RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA \
 -u "http://$(wget -qO- eth0.me):${BUNDLR_PORT}" \
 -s 25000000000000
 
-sleep 2
-
 break
 ;;
 
